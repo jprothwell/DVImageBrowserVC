@@ -17,12 +17,12 @@
 
 import UIKit
 
-public class DVImageBrowserVC: UIViewController {
+open class DVImageBrowserVC: UIViewController {
     
     public var delegate: DVImageBrowserVCDelegate?
     /// 有导航栏存在时，设置了也无效，需要设置self.navigationController?.navigationBar.barStyle = UIBarStyle.black才能改成白色
     /// 这里是为了防止状态栏文字是黑色影响视觉效果
-    override public var preferredStatusBarStyle: UIStatusBarStyle {
+    override open var preferredStatusBarStyle: UIStatusBarStyle {
         get {
             return UIStatusBarStyle.lightContent
         }
@@ -144,18 +144,18 @@ public class DVImageBrowserVC: UIViewController {
         }
     }
     
-    override public func viewDidLoad() {
+    override open func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         self.setView()
     }
     
-    override public func viewDidAppear(_ animated: Bool) {
+    override open func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         hiddenNav = true
     }
     
-    override public func viewWillDisappear(_ animated: Bool) {
+    override open func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         /// 当导航处于屏幕外面时直接右滑让导航栏复位，否则滑出去之后导航栏会消失
         guard self.navigationController != nil else {
