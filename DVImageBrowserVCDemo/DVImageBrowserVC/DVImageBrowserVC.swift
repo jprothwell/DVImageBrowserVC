@@ -112,9 +112,14 @@ open class DVImageBrowserVC: UIViewController {
     /// 是否隐藏导航栏与状态栏 push转场时，点击屏幕隐藏或者显示导航栏
     fileprivate var hiddenNav = false {
         didSet {
+            guard let num = images?.count, num > 0 else {
+                return
+            }
+            
             guard self.navigationController != nil else {
                 return
             }
+            
             let bar = self.navigationController!.navigationBar
             var tran = bar.transform
             
